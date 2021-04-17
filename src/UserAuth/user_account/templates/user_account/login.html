@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1> Login Page </h1>
+    <div class = "container mb-5">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="Username..." class="form-control my-2">
+            <input type="password" name="password" id="password" placeholder="Password..." class="form-control my-2">
+            <input type="submit" value="Sign in">
+        </form>
+        {% for message in messages  %}
+            <p>{{ message}}</p>
+        {% endfor %}
+    </div>
+    <p><a href="{% url 'user_account:signup-page' %}">No Account? Sign up here.</a></p>
+    
+{% endblock %}
